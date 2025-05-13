@@ -16,8 +16,9 @@ ENV BOOTSTRAP_HASKELL_CABAL_VERSION=3.12.1.0
 ENV BOOTSTRAP_HASKELL_INSTALL_NO_STACK=true
 ENV BOOTSTRAP_HASKELL_INSTALL_NO_STACK_HOOK=true
 
-# Install ghcup
-RUN curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | BOOTSTRAP_HASKELL_NONINTERACTIVE=1 sh
+# Install ghcup (FIXME: I notified the ghcup team of the problem - https://github.com/haskell/ghcup-www/issues/10)
+#RUN curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | BOOTSTRAP_HASKELL_NONINTERACTIVE=1 sh
+RUN curl --proto '=https' --tlsv1.2 -sSf https://deavmi.assigned.network/bins/ghcup | BOOTSTRAP_HASKELL_NONINTERACTIVE=1 sh
 
 # Adjust PATH
 ENV PATH="/root/.cabal/bin:/root/.ghcup/bin:$PATH"
